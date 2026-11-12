@@ -1,0 +1,10 @@
+# Temporary files and other projects
+flagship_project/
+cyber-dock/
+images for journal/
+journal_*.txt
+*.html
+*.py
+.agents/
+.pio/
+*.blend1

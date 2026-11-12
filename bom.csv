@@ -1,0 +1,17 @@
+Item,Description,Quantity,Unit Price (USD),Total Price (USD),Vendor,Product Link
+ESP32-S3-WROOM-1-N8,Espressif Dual-Core Wi-Fi/BLE Microcontroller Module (8MB Flash),1,2.80,2.80,LCSC,https://www.lcsc.com/product-detail/C2913198.html
+1.69 inch IPS LCD Display,240x280 Color SPI Screen (ST7789V driver),1,3.40,3.40,AliExpress,https://www.aliexpress.com/item/1005004655452771.html
+Custom 2-Layer PCB (Pack of 10),Custom PCB fabrication (FR-4 1.6mm Green HASL finish 98x74mm),1,10.80,10.80,JLCPCB,https://jlcpcb.com/
+TP4056 Battery Charger IC,Lithium Ion Battery Charger IC with SOP-8 package,2,0.30,0.60,LCSC,https://www.lcsc.com/product-detail/C16581.html
+ME6211C33M5G-N,3.3V 500mA Low Dropout Voltage Regulator (SOT-23-5),2,0.25,0.50,LCSC,https://www.lcsc.com/product-detail/C82942.html
+USB Type-C 16-Pin Receptacle,Through-hole/SMD hybrid USB-C connector for charging/programming,2,0.35,0.70,LCSC,https://www.lcsc.com/product-detail/C2765186.html
+Tactile Push Buttons (6x6x5mm),Directional D-Pad & Action tactile switches (Pack of 10),1,1.20,1.20,LCSC,https://www.lcsc.com/product-detail/C318884.html
+WS2812B-Mini (3535),Addressable RGB LED for status and indicators (Pack of 5),1,0.80,0.80,LCSC,https://www.lcsc.com/product-detail/C114587.html
+Passive Component Kit (0805),SMD 0805 resistors (5.1k 10k 1k) and ceramic caps (10uF 0.1uF 1uF),1,4.50,4.50,LCSC,https://www.lcsc.com/product-detail/C2508.html
+Mini Piezo Buzzer (5x5mm),Passive SMD piezo sounder for 8-bit chiptune audio,1,0.60,0.60,LCSC,https://www.lcsc.com/product-detail/C94598.html
+LiPo Battery 3.7V 500mAh,Rechargeable Lithium Polymer battery with JST-PH 2.0 connector,1,4.80,4.80,AliExpress,https://www.aliexpress.com/item/32832810486.html
+JST-PH 2.0mm Male Header,Right-angle battery connector header,1,0.15,0.15,LCSC,https://www.lcsc.com/product-detail/C160352.html
+Basic Soldering Kit & Solder Wire,Beginner 60W temperature-adjustable iron with rosin core solder,1,16.50,16.50,Amazon,https://www.amazon.com/dp/B07Q2B45QU
+JLCPCB & LCSC Global Shipping,Combined international shipping to India with tracking,1,16.00,16.00,JLCPCB,https://jlcpcb.com/
+Customs Duties & Forex Conversion Buffer,Estimated import clearance and currency exchange buffer,1,6.55,6.55,Bank / Customs,https://www.cbic.gov.in/
+Total,,,,$70.00,,
