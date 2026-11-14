@@ -1,3 +1,9 @@
+// ==============================================================
+// Hardware Pinout Definitions
+// Author: Arfat Ansari
+// Target: ESP32-S3-WROOM-1 on custom 2-layer PCB
+// ==============================================================
+
 #ifndef PINS_H
 #define PINS_H
 

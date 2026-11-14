@@ -1,3 +1,10 @@
+// ==============================================================
+// 2.4GHz RF Scanner & ESP-NOW Badge Radar
+// Author: Arfat Ansari
+// Scans Wi-Fi channels and shows local beacon density on the LCD
+// Also broadcasts our badge ID over ESP-NOW for social handshakes
+// ==============================================================
+
 #ifndef RADAR_H
 #define RADAR_H
 
@@ -14,15 +21,13 @@
 
 struct PeerBadge {
     char handle[16];
-    char team[16];
     int8_t rssi;
     unsigned long lastSeen;
 };
 
-// Data payload broadcasted over ESP-NOW
+// Data payload we broadcast over ESP-NOW to other badges
 typedef struct struct_message {
     char handle[16];
-    char team[16];
 } struct_message;
 
 class CyberRadar {
@@ -65,7 +70,8 @@ public:
     }
 
     void scanNetworks() {
-        scannedNetworks = WiFi.scanNetworks(true); // Asynchronous scan
+        // Run an async scan so the screen doesn't freeze
+        scannedNetworks = WiFi.scanNetworks(true);
         lastScanTime = millis();
     }
 
@@ -73,7 +79,7 @@ public:
         radarAngle += 0.08;
         if (radarAngle > 6.28) radarAngle = 0;
 
-        // Periodic Wi-Fi Channel Rescan
+        // Rescan every 3.5 seconds
         if (millis() - lastScanTime > 3500) {
             int n = WiFi.scanComplete();
             if (n >= 0) {
@@ -86,24 +92,24 @@ public:
     }
 
     void render() {
-        // Draw Radar Scope in center
+        // Draw the circular radar screen in the center
         int centerX = SCREEN_W / 2;
         int centerY = 135;
         int radius = 60;
 
-        // Draw concentric green radar rings
+        // Concentric green radar rings and crosshairs
         tft->drawCircle(centerX, centerY, radius, TFT_DARKGREEN);
         tft->drawCircle(centerX, centerY, radius * 0.66, TFT_DARKGREEN);
         tft->drawCircle(centerX, centerY, radius * 0.33, TFT_DARKGREEN);
         tft->drawFastHLine(centerX - radius, centerY, radius * 2, TFT_DARKGREEN);
         tft->drawFastVLine(centerX, centerY - radius, radius * 2, TFT_DARKGREEN);
 
-        // Draw sweeping radar scanner line
+        // Sweeping radar beam line
         int sweepX = centerX + cos(radarAngle) * radius;
         int sweepY = centerY + sin(radarAngle) * radius;
         tft->drawLine(centerX, centerY, sweepX, sweepY, TFT_GREEN);
 
-        // Draw status readout below radar
+        // Status text readout at the bottom
         tft->fillRect(0, 210, SCREEN_W, 70, TFT_BLACK);
         tft->setTextColor(TFT_WHITE, TFT_BLACK);
         tft->drawString("NETWORKS FOUND: " + String(scannedNetworks), 20, 215, 2);
@@ -112,7 +118,7 @@ public:
         tft->drawString("ESP-NOW BADGE BEACON: ACTIVE", 20, 235, 2);
 
         tft->setTextColor(TFT_CYAN, TFT_BLACK);
-        tft->drawString("BROADCASTING ID: Auralious", 20, 255, 2);
+        tft->drawString("BROADCASTING ID: Arfat", 20, 255, 2);
     }
 };
 

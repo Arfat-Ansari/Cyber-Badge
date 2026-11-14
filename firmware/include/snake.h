@@ -1,3 +1,9 @@
+// ==============================================================
+// Cyber Snake Arcade Game
+// Author: Arfat Ansari
+// Smooth 4-way D-pad snake game with speed boost on Button A
+// ==============================================================
+
 #ifndef SNAKE_H
 #define SNAKE_H
 

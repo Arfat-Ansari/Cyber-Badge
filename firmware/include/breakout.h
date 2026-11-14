@@ -1,3 +1,9 @@
+// ==============================================================
+// Shenzhen Breakout Arcade Game
+// Author: Arfat Ansari
+// Paddle brick breaker with 2-row chip blocks and sound effects
+// ==============================================================
+
 #ifndef BREAKOUT_H
 #define BREAKOUT_H
 

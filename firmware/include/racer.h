@@ -1,3 +1,9 @@
+// ==============================================================
+// Highway Racer Arcade Game
+// Author: Arfat Ansari
+// Top-down highway dodging traffic cars with scrolling road
+// ==============================================================
+
 #ifndef RACER_H
 #define RACER_H
 

@@ -1,3 +1,9 @@
+// ==============================================================
+// Shenzhen Invaders Arcade Game
+// Author: Arfat Ansari
+// Classic space shooter written for the 1.69" IPS screen
+// ==============================================================
+
 #ifndef INVADERS_H
 #define INVADERS_H
 

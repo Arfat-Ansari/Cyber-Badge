@@ -1,3 +1,10 @@
+// ==============================================================
+// 6-Button Tactile Input & Debouncing
+// Author: Arfat Ansari
+// Handles the 4-way D-pad (Up/Down/Left/Right) and A/B buttons
+// Buttons are wired active-low with the ESP32 internal pullups
+// ==============================================================
+
 #ifndef INPUT_H
 #define INPUT_H
 
@@ -13,7 +20,8 @@ struct ButtonState {
 
 class InputController {
 private:
-    static const unsigned long DEBOUNCE_DELAY = 30; // 30ms debounce
+    // 25ms debounce delay to ignore switch chatter
+    static const unsigned long DEBOUNCE_DELAY = 25;
 
     ButtonState btnUp    = {PIN_BTN_UP, HIGH, HIGH, 0};
     ButtonState btnDown  = {PIN_BTN_DOWN, HIGH, HIGH, 0};
@@ -35,6 +43,7 @@ private:
 
 public:
     void init() {
+        // Enable internal pullups so we don't need external resistors on the PCB
         pinMode(PIN_BTN_UP, INPUT_PULLUP);
         pinMode(PIN_BTN_DOWN, INPUT_PULLUP);
         pinMode(PIN_BTN_LEFT, INPUT_PULLUP);
@@ -52,7 +61,7 @@ public:
         updateButton(btnB);
     }
 
-    // Is button currently held down? (Active LOW)
+    // Returns true while the button is currently held down
     bool isDown(uint8_t pin) {
         switch(pin) {
             case PIN_BTN_UP:    return btnUp.currentState == LOW;
@@ -65,7 +74,7 @@ public:
         }
     }
 
-    // Did button get pressed on this exact frame?
+    // Returns true only on the single frame the button is first tapped
     bool justPressed(uint8_t pin) {
         switch(pin) {
             case PIN_BTN_UP:    return btnUp.currentState == LOW && btnUp.previousState == HIGH;
@@ -76,6 +85,16 @@ public:
             case PIN_BTN_B:     return btnB.currentState == LOW && btnB.previousState == HIGH;
             default: return false;
         }
+    }
+
+    // Helper to detect if user pressed any button (used to exit boot screen)
+    bool anyPressed() {
+        return justPressed(PIN_BTN_UP) ||
+               justPressed(PIN_BTN_DOWN) ||
+               justPressed(PIN_BTN_LEFT) ||
+               justPressed(PIN_BTN_RIGHT) ||
+               justPressed(PIN_BTN_A) ||
+               justPressed(PIN_BTN_B);
     }
 };
 

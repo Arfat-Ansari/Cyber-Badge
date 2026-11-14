@@ -1,3 +1,9 @@
+// ==============================================================
+// Flappy Cyber-Drone Arcade Game
+// Author: Arfat Ansari
+// Single-button physics flight tapping through neon obstacles
+// ==============================================================
+
 #ifndef FLAPPY_H
 #define FLAPPY_H
 

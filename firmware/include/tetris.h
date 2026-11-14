@@ -1,3 +1,9 @@
+// ==============================================================
+// Cyber Blocks (Tetris) Arcade Game
+// Author: Arfat Ansari
+// Falling tetromino matrix with rotation and line clears
+// ==============================================================
+
 #ifndef TETRIS_H
 #define TETRIS_H
 
